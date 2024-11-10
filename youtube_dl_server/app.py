@@ -30,7 +30,8 @@ def get_videos(url, extra_params):
         'format': 'best',
         'cachedir': False,
         'logger': current_app.logger.getChild('youtube-dl'),
-        'cookies': os.path.abspath('cookies.txt')
+        'username': os.getenv("YT_USERNAME"),
+        'password': os.getenv("YT_PASSWORD")
     }
     ydl_params.update(extra_params)
     ydl = SimpleYDL(ydl_params)

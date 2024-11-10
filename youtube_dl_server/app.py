@@ -2,6 +2,7 @@ import functools
 import logging
 import traceback
 import sys
+import os
 
 from flask import Flask, Blueprint, current_app, jsonify, request, redirect, abort
 import yt_dlp
@@ -29,6 +30,8 @@ def get_videos(url, extra_params):
         'format': 'best',
         'cachedir': False,
         'logger': current_app.logger.getChild('youtube-dl'),
+        'username': os.getenv("YT_USERNAME"),
+        'password': os.getenv("YT_PASSWORD"),
     }
     ydl_params.update(extra_params)
     ydl = SimpleYDL(ydl_params)

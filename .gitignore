@@ -14,3 +14,6 @@ docs/_build
 
 # configuration file for the app
 application.cfg
+
+# IDEs
+.idea/
